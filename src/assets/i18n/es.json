@@ -1,0 +1,17 @@
+{
+  "global": {
+    "appName": "TinkedIn"
+  },
+  "languages": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "components": {
+  },
+  "pages": {
+    "guide": {
+    },
+    "home": {
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-home',
@@ -11,7 +12,6 @@ export class HomePage implements AfterViewInit {
 
     constructor() {
         this.cards = [];
-        console.log('Entered');
     }
 
     loadTinderCards() {

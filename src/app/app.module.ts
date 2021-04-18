@@ -5,15 +5,32 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 
 import {RouteReuseStrategy} from '@angular/router';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {HomePage} from '../pages/home/home.page';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        HttpClientModule,
         IonicModule.forRoot(),
+        TranslateModule.forRoot(
+            {
+                loader: {
+                    provide: TranslateLoader,
+                    useFactory: createTranslateLoader,
+                    deps: [HttpClient]
+                },
+                defaultLanguage: 'es'
+            }
+        ),
         HammerModule,
         AppRoutingModule,
         FontAwesomeModule,
