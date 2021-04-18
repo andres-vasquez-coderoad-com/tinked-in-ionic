@@ -2,7 +2,7 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HomePage} from './home.page';
+import {GuidePage} from './guide.page';
 import {HammerModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
@@ -11,7 +11,7 @@ import {ComponentsModule} from '../../components/components.module';
 const routes: Routes = [
     {
         path: '',
-        component: HomePage,
+        component: GuidePage,
     }
 ];
 
@@ -28,7 +28,7 @@ const routes: Routes = [
     providers: [
         TranslateService
     ],
-    declarations: [HomePage]
+    declarations: [GuidePage]
 })
-export class HomePageModule {
+export class GuidePageModule {
 }

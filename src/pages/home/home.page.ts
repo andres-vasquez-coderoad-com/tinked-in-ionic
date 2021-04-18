@@ -1,5 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import {JobPostModel} from '../../model/job-post.model';
 
 @Component({
     selector: 'app-home',
@@ -8,10 +8,14 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class HomePage implements AfterViewInit {
 
-    cards;
+    cards: Array<JobPostModel> = [];
 
     constructor() {
         this.cards = [];
+    }
+
+    ngAfterViewInit(): void {
+        this.loadTinderCards();
     }
 
     loadTinderCards() {
@@ -20,37 +24,33 @@ export class HomePage implements AfterViewInit {
         this.cards = this.cards.concat(this.getCards());
     }
 
-    getCards() {
+    getCards(): Array<JobPostModel> {
         return [
             {
-                img: 'https://placeimg.com/300/300/people',
+                image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost9.png?alt=media',
                 title: 'Demo card 1',
-                description: 'This is a demo for Tinder like swipe cards'
+                shortDescription: 'This is a demo for Tinder like swipe cards'
             },
             {
-                img: 'https://placeimg.com/300/300/animals',
+                image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost9.png?alt=media',
                 title: 'Demo card 2',
-                description: 'This is a demo for Tinder like swipe cards'
+                shortDescription: 'This is a demo for Tinder like swipe cards'
             },
             {
-                img: 'https://placeimg.com/300/300/nature',
+                image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost9.png?alt=media',
                 title: 'Demo card 3',
-                description: 'This is a demo for Tinder like swipe cards'
+                shortDescription: 'This is a demo for Tinder like swipe cards'
             },
             {
-                img: 'https://placeimg.com/300/300/tech',
+                image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost9.png?alt=media',
                 title: 'Demo card 4',
-                description: 'This is a demo for Tinder like swipe cards'
+                shortDescription: 'This is a demo for Tinder like swipe cards'
             },
             {
-                img: 'https://placeimg.com/300/300/arch',
+                image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost9.png?alt=media',
                 title: 'Demo card 5',
-                description: 'This is a demo for Tinder like swipe cards'
+                shortDescription: 'This is a demo for Tinder like swipe cards'
             }
         ];
-    }
-
-    ngAfterViewInit(): void {
-        this.loadTinderCards();
     }
 }
