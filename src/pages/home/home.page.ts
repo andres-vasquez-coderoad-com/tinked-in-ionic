@@ -1,16 +1,18 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {JobPostModel} from '../../model/job-post.model';
+import {NavigationI} from '../../model/navigation-i.model';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss']
 })
-export class HomePage implements AfterViewInit {
+export class HomePage implements AfterViewInit, NavigationI {
 
     cards: Array<JobPostModel> = [];
 
-    constructor() {
+    constructor(private navCtrl: NavController) {
         this.cards = [];
     }
 
@@ -52,5 +54,20 @@ export class HomePage implements AfterViewInit {
                 shortDescription: 'This is a demo for Tinder like swipe cards'
             }
         ];
+    }
+
+    back() {
+    }
+
+    goToChat() {
+        this.navCtrl.navigateForward('chat').then();
+    }
+
+    goToHome() {
+        this.navCtrl.navigateForward('guide').then();
+    }
+
+    goToProfile() {
+        this.navCtrl.navigateForward('profile').then();
     }
 }
