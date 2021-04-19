@@ -12,6 +12,7 @@ import {
     ViewChildren
 } from '@angular/core';
 import {JobPostModel} from '../../model/job-post.model';
+import {ImageUtils} from '../../utils/image.utils';
 
 @Component({
     selector: 'app-tinder-ui',
@@ -38,6 +39,7 @@ export class TinderUiComponent implements OnChanges, AfterViewInit {
     @Output() likeEvent = new EventEmitter<JobPostModel>();
     @Output() dislikeEvent = new EventEmitter<JobPostModel>();
     @Output() passEvent = new EventEmitter<JobPostModel>();
+    @Output() moreInfoEvent = new EventEmitter<JobPostModel>();
 
     constructor(private renderer: Renderer2) {
     }
@@ -57,6 +59,9 @@ export class TinderUiComponent implements OnChanges, AfterViewInit {
 
     moreInfo(event: any) {
         event.preventDefault();
+        if (this.cards.length) {
+            this.moreInfoEvent.emit(this.cards[0]);
+        }
     }
 
     userClickedButton(event: any, heart: boolean) {
@@ -186,5 +191,9 @@ export class TinderUiComponent implements OnChanges, AfterViewInit {
 
     passed(card: JobPostModel) {
         this.passEvent.emit(card);
+    }
+
+    getImageFilePath() {
+        return ImageUtils.getImageFilePath();
     }
 }

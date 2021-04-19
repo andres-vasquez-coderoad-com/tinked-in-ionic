@@ -29,16 +29,16 @@
 
     <div class="tinder--buttons">
 
-        <button class="action"  (click)="userClickedButton($event, false)">
-            <img src="assets/icon/button-dislike.png"/>
+        <button class="action" (click)="userClickedButton($event, false)">
+            <img src="{{getImageFilePath()}}assets/icon/button-dislike.png"/>
         </button>
 
         <button class="info" (click)="moreInfo($event)">
-            <img src="assets/icon/Star.png"/>
+            <img src="{{getImageFilePath()}}assets/icon/Star.png"/>
         </button>
 
-        <button class="action"  (click)="userClickedButton($event, true)">
-            <img src="assets/icon/button-like.png"/>
+        <button class="action" (click)="userClickedButton($event, true)">
+            <img src="{{getImageFilePath()}}assets/icon/button-like.png"/>
         </button>
     </div>
 </div>

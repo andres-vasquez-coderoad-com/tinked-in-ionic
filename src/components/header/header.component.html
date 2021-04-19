@@ -1,17 +1,17 @@
 <div class="header">
     <div class="container">
         <button (click)="profileClick()">
-            <img src="assets/icon/profile-sm.png"/>
+            <img src="{{getImageFilePath()}}assets/icon/profile-sm.png"/>
         </button>
     </div>
     <div class="container">
         <button (click)="homeClick()">
-            <img src="assets/icon/logo-blue-sm.png"/>
+            <img src="{{getImageFilePath()}}assets/icon/logo-blue-sm.png"/>
         </button>
     </div>
     <div class="container">
         <button (click)="chatClick()">
-            <img src="assets/icon/chat-sm.png"/>
+            <img src="{{getImageFilePath()}}assets/icon/chat-sm.png"/>
         </button>
     </div>
 </div>

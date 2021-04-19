@@ -12,6 +12,7 @@ import {
     ViewChildren
 } from '@angular/core';
 import {JobPostModel} from '../../model/job-post.model';
+import {ImageUtils} from '../../utils/image.utils';
 
 @Component({
     selector: 'app-header',
@@ -39,5 +40,9 @@ export class HeaderComponent implements AfterViewInit {
 
     chatClick() {
         this.chatClickEvent.emit();
+    }
+
+    getImageFilePath() {
+        return ImageUtils.getImageFilePath();
     }
 }
