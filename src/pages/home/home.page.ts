@@ -1,6 +1,6 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {JobPostModel} from '../../model/job-post.model';
-import {NavigationI} from '../../model/navigation-i.model';
+import {JobPostCard} from '../../model/job-post.card';
+import {NavigationI} from '../../model/interfaces/navigation-i.model';
 import {NavController} from '@ionic/angular';
 
 @Component({
@@ -10,7 +10,7 @@ import {NavController} from '@ionic/angular';
 })
 export class HomePage implements AfterViewInit, NavigationI {
 
-    cards: Array<JobPostModel> = [];
+    cards: Array<JobPostCard> = [];
 
     constructor(private navCtrl: NavController) {
         this.cards = [];
@@ -26,7 +26,7 @@ export class HomePage implements AfterViewInit, NavigationI {
         this.cards = this.cards.concat(this.getCards());
     }
 
-    getCards(): Array<JobPostModel> {
+    getCards(): Array<JobPostCard> {
         return [
             {
                 image: 'https://firebasestorage.googleapis.com/v0/b/tinked-in.appspot.com/o/jobs%2Fpost1.jpg?alt=media',

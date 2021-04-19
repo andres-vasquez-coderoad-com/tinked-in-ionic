@@ -11,7 +11,7 @@ import {
     SimpleChanges,
     ViewChildren
 } from '@angular/core';
-import {JobPostModel} from '../../model/job-post.model';
+import {JobPostCard} from '../../model/job-post.card';
 import {ImageUtils} from '../../utils/image.utils';
 
 @Component({
@@ -21,9 +21,9 @@ import {ImageUtils} from '../../utils/image.utils';
 })
 export class TinderUiComponent implements OnChanges, AfterViewInit {
     // Ref: https://betterprogramming.pub/tinder-like-swiper-ui-for-angular-ionic-4-50c401d6b9fb
-    @Input('cards') cards: Array<JobPostModel> = [];
+    @Input('cards') cards: Array<JobPostCard> = [];
 
-    originalCards: Array<JobPostModel> = [];
+    originalCards: Array<JobPostCard> = [];
     currentPosition = 0;
 
     @ViewChildren('tinderCard') tinderCards: QueryList<ElementRef>;
@@ -36,10 +36,10 @@ export class TinderUiComponent implements OnChanges, AfterViewInit {
     heartVisible: boolean;
     crossVisible: boolean;
 
-    @Output() likeEvent = new EventEmitter<JobPostModel>();
-    @Output() dislikeEvent = new EventEmitter<JobPostModel>();
-    @Output() passEvent = new EventEmitter<JobPostModel>();
-    @Output() moreInfoEvent = new EventEmitter<JobPostModel>();
+    @Output() likeEvent = new EventEmitter<JobPostCard>();
+    @Output() dislikeEvent = new EventEmitter<JobPostCard>();
+    @Output() passEvent = new EventEmitter<JobPostCard>();
+    @Output() moreInfoEvent = new EventEmitter<JobPostCard>();
 
     constructor(private renderer: Renderer2) {
     }
@@ -181,15 +181,15 @@ export class TinderUiComponent implements OnChanges, AfterViewInit {
         }
     }
 
-    like(card: JobPostModel) {
+    like(card: JobPostCard) {
         this.likeEvent.emit(card);
     }
 
-    disLike(card: JobPostModel) {
+    disLike(card: JobPostCard) {
         this.dislikeEvent.emit(card);
     }
 
-    passed(card: JobPostModel) {
+    passed(card: JobPostCard) {
         this.passEvent.emit(card);
     }
 

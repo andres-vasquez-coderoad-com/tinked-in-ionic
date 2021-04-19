@@ -10,6 +10,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {ApiService} from '../services/api/api.service';
+import {ClientService} from '../services/client/client.service';
+import {LinkedInService} from '../services/linked-in/linked-in.service';
+import {RecommendationService} from '../services/recommendation/recommendation.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -39,6 +43,10 @@ export function createTranslateLoader(http: HttpClient) {
         AppComponent
     ],
     providers: [
+        ApiService,
+        ClientService,
+        LinkedInService,
+        RecommendationService,
         {
             provide: RouteReuseStrategy, useClass: IonicRouteStrategy,
         },
