@@ -5,7 +5,6 @@ export class ImageUtils {
     if (!(url.indexOf("localhost") > -1)) {
       basePath =
         "https://github.com/andres-vasquez-coderoad-com/tinked-in-ionic/blob/develop/src/";
-      console.log("url", basePath);
     }
     return basePath;
   }

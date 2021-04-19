@@ -1,17 +1,4 @@
-import {
-    AfterViewInit,
-    Component,
-    ElementRef,
-    EventEmitter,
-    Input,
-    OnChanges,
-    Output,
-    QueryList,
-    Renderer2,
-    SimpleChanges,
-    ViewChildren
-} from '@angular/core';
-import {JobPostModel} from '../../model/job-post.model';
+import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
 import {ImageUtils} from '../../utils/image.utils';
 
 @Component({
