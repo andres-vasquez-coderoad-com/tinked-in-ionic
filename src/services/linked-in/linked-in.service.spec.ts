@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LinkedInService } from './linked-in.service';
+import {LinkedInService} from './linked-in.service';
 
 describe('LinkedInService', () => {
   let service: LinkedInService;

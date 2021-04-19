@@ -14,6 +14,7 @@ import {ApiService} from '../services/api/api.service';
 import {ClientService} from '../services/client/client.service';
 import {LinkedInService} from '../services/linked-in/linked-in.service';
 import {RecommendationService} from '../services/recommendation/recommendation.service';
+import {MockClientService} from '../services/client/mock-client.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,6 +48,9 @@ export function createTranslateLoader(http: HttpClient) {
         ClientService,
         LinkedInService,
         RecommendationService,
+
+        //Mock
+        MockClientService,
         {
             provide: RouteReuseStrategy, useClass: IonicRouteStrategy,
         },

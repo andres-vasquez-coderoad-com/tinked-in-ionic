@@ -1,4 +1,5 @@
 export class JobPostCard {
+    uuid?: string;
     image: string;
     title: string;
     shortDescription: string;
@@ -11,5 +12,5 @@ export class JobPostModel {
     city: string;
     accuracy: number;
     random: boolean;
-    tags: Set<string>;
+    tags: Array<string>;
 }

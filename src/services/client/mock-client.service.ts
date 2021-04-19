@@ -2,19 +2,24 @@ import {Injectable} from '@angular/core';
 import {UserModel} from '../../model/user.model';
 import {RecommendationModel} from '../../model/recommendation.model';
 import {JobPostModel} from '../../model/job-post.card';
-import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ClientService {
+export class MockClientService {
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     getRecommendations(user: UserModel): Observable<RecommendationModel> {
-        return of(new RecommendationModel([]));
+        return this.http.get<Array<JobPostModel>>('/assets/mocked/').pipe(
+            map((json) => new RecommendationModel(json))
+        );
     }
+
 
     postLike(job: JobPostModel): boolean {
         console.log('Like saved', job);

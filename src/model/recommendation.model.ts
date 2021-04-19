@@ -1,10 +1,20 @@
-import {JobPostCard} from './job-post.card';
+import {JobPostCard, JobPostModel} from './job-post.card';
 
 export class RecommendationModel {
     uuid?: string;
     timestamp: number;
     fromCache: boolean;
-    recommendedPosts: Array<JobPostCard>;
+    recommendedPosts: Array<JobPostModel>;
+
+    constructor(recommendedPosts: Array<JobPostModel>) {
+        this.timestamp = new Date().getTime();
+        this.fromCache = false;
+        this.recommendedPosts = recommendedPosts;
+    }
+
+    getCards(): Array<JobPostCard> {
+        return this.recommendedPosts.map(post => post.card);
+    }
 }
 
 export class RecommendationHistory {
@@ -15,4 +25,5 @@ export class RecommendationHistory {
 
     //Key; Uuid of JobPost, val: Number of occurrences
     passed: Map<string, number>;
+    lastActionTimestamp: number;
 }
