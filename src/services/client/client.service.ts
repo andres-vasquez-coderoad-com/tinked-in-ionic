@@ -4,19 +4,24 @@ import { RecommendationModel } from "../../model/recommendation.model";
 import { JobPostModel } from "../../model/job-post.card";
 import { Observable, of } from "rxjs";
 import { RecommendationService } from "../recommendation/recommendation.service";
+import { ClientI } from "../../model/interfaces/client-i.model";
 
 @Injectable({
   providedIn: "root"
 })
-export class ClientService {
-  constructor(@Inject(RecommendationService) private recommendationService: RecommendationService) {}
+export class ClientService implements ClientI {
+  constructor(
+    @Inject(RecommendationService)
+    private recommendationService: RecommendationService
+  ) {}
 
   getRecommendations(user: UserModel): Observable<RecommendationModel> {
+    console.log("Recommendations 1");
     return this.recommendationService.getRecommendations(user);
   }
 
   postLike(user: UserModel, job: JobPostModel): boolean {
-    console.log("Like saved", job);
+    console.log("Like saved from client", job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),
@@ -28,7 +33,7 @@ export class ClientService {
   }
 
   disLike(user: UserModel, job: JobPostModel): boolean {
-    console.log("Dislike saved", job);
+    console.log("Dislike saved  from client", job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),
@@ -40,7 +45,7 @@ export class ClientService {
   }
 
   passed(user: UserModel, job: JobPostModel): boolean {
-    console.log("Passed saved", job);
+    console.log("Passed saved  from client", job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),
@@ -51,7 +56,7 @@ export class ClientService {
     return true;
   }
 
-  updateRecommendationHistory(
+  private updateRecommendationHistory(
     user: UserModel,
     timestamp: number,
     likeUuid: string,
@@ -77,7 +82,7 @@ export class ClientService {
     history.lastActionTimestamp = timestamp;
   }
 
-  sendNotification() {
+  private sendNotification() {
     //TODO send notification
   }
 }

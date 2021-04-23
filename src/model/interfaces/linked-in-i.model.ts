@@ -1,7 +1,7 @@
-import {UserModel} from '../user.model';
+import { UserModel } from "../user.model";
 
 export interface LinkedInI {
-    login(email: string): UserModel;
+  login(email: string): UserModel;
 
-    register(): UserModel;
+  //register(): UserModel;
 }

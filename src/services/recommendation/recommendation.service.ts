@@ -7,11 +7,12 @@ import {
 import { ClientI } from "../../model/interfaces/client-i.model";
 import { JobPostModel } from "../../model/job-post.card";
 import { Observable, of } from "rxjs";
+import { RecomendationI } from "../../model/interfaces/recomendation-i.model";
 
 @Injectable({
   providedIn: "root"
 })
-export class RecommendationService implements ClientI {
+export class RecommendationService implements RecomendationI {
   //Key: userId
   history: Map<string, RecommendationHistory> = new Map<
     string,
@@ -66,18 +67,6 @@ export class RecommendationService implements ClientI {
       }
     ];
     return of(new RecommendationModel(json));
-  }
-
-  disLike(job: JobPostModel): boolean {
-    throw Error("Not implemented");
-  }
-
-  passed(job: JobPostModel): boolean {
-    throw Error("Not implemented");
-  }
-
-  postLike(job: JobPostModel): boolean {
-    throw Error("Not implemented");
   }
 
   getHistory(userUuid: string): RecommendationHistory {

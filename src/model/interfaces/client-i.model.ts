@@ -1,14 +1,14 @@
-import {RecommendationModel} from '../recommendation.model';
-import {UserModel} from '../user.model';
-import {JobPostModel} from '../job-post.card';
-import {Observable} from 'rxjs';
+import { Observable } from "rxjs";
+import { JobPostModel } from "../job-post.card";
+import { RecommendationModel } from "../recommendation.model";
+import { UserModel } from "../user.model";
 
 export interface ClientI {
-    getRecommendations(user: UserModel): Observable<RecommendationModel>;
+  getRecommendations(user: UserModel): Observable<RecommendationModel>;
 
-    postLike(job: JobPostModel): boolean;
+  postLike(user: UserModel, job: JobPostModel): boolean;
 
-    disLike(job: JobPostModel): boolean;
+  disLike(user: UserModel, job: JobPostModel): boolean;
 
-    passed(job: JobPostModel): boolean;
+  passed(user: UserModel, job: JobPostModel): boolean;
 }
