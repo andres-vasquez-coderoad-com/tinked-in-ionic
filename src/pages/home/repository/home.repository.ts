@@ -3,13 +3,13 @@ import {LinkedInService} from '../../../services/linked-in/linked-in.service';
 import {LinkedInI} from '../../../model/interfaces/linked-in-i.model';
 import {ClientService} from '../../../services/client/client.service';
 import {ClientI} from '../../../model/interfaces/client-i.model';
-import {JobPostCard} from '../../../model/job-post.card';
 import {JobUtils} from '../../../utils/job.utils';
 import {CandidateUserModel, UserModel} from '../../../model/user.model';
 import {RecommendationModel} from '../../../model/recommendation.model';
 import {Observable, of} from 'rxjs';
 import {HomeRepositoryI} from './home-i.repository';
 import {map} from 'rxjs/operators';
+import {JobPostCard} from '../entity/job-post.card';
 
 @Injectable({
     providedIn: 'root'

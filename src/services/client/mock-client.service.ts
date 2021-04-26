@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {UserModel} from '../../model/user.model';
 import {RecommendationModel} from '../../model/recommendation.model';
-import {JobPostModel} from '../../model/job-post.card';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {ClientI} from '../../model/interfaces/client-i.model';
+import {JobPostModel} from '../../model/job-post.model';
 
 @Injectable({
   providedIn: 'root'

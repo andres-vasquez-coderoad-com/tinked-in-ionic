@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs';
-import {JobPostCard} from '../../../model/job-post.card';
+import {JobPostCard} from '../entity/job-post.card';
 
 export interface HomeRepositoryI {
     getCards(): Observable<Array<JobPostCard>>;

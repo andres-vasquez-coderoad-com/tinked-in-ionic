@@ -1,4 +1,5 @@
-import {JobPostCard, JobPostModel} from './job-post.card';
+import {JobPostModel} from './job-post.model';
+import {JobPostCard} from '../pages/home/entity/job-post.card';
 
 export class RecommendationModel {
     uuid?: string;

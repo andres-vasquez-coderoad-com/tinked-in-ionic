@@ -1,9 +1,4 @@
-export class JobPostCard {
-    uuid?: string;
-    image: string;
-    title: string;
-    shortDescription: string;
-}
+import {JobPostCard} from '../pages/home/entity/job-post.card';
 
 export class JobPostModel {
     uuid?: string;

@@ -1,11 +1,11 @@
 import {HomePresenterI} from './home.presenter';
-import {JobPostCard} from '../../../model/job-post.card';
 import {Observable} from 'rxjs';
 import {Inject, Injectable} from '@angular/core';
 import {HomeRepositoryI} from '../repository/home-i.repository';
 import {HomeRepository} from '../repository/home.repository';
 import {AnalyticsService} from '../../../services/analytics/analytics.service';
 import {AnalyticsServiceI} from '../../../services/analytics/analytics-i.service';
+import {JobPostCard} from '../entity/job-post.card';
 
 @Injectable({
     providedIn: 'root'

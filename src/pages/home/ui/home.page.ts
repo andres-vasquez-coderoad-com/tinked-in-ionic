@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, Inject} from '@angular/core';
-import {JobPostCard} from '../../../model/job-post.card';
 import {HomeNavigationI} from '../../../model/interfaces/home-navigation-i.model';
 import {NavController} from '@ionic/angular';
 import {HomePresenterI} from '../use-cases/home.presenter';
 import {HomeUseCases} from '../use-cases/home.use-cases';
+import {JobPostCard} from '../entity/job-post.card';
 
 @Component({
     selector: 'app-home',

@@ -11,8 +11,8 @@ import {
     SimpleChanges,
     ViewChildren
 } from '@angular/core';
-import {JobPostCard} from '../../model/job-post.card';
 import {ImageUtils} from '../../utils/image.utils';
+import {JobPostCard} from '../../pages/home/entity/job-post.card';
 
 @Component({
     selector: 'app-tinder-ui',

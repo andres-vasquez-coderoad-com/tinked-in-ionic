@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {UserModel} from '../../model/user.model';
 import {RecommendationHistory, RecommendationModel} from '../../model/recommendation.model';
-import {JobPostModel} from '../../model/job-post.card';
 import {Observable, of} from 'rxjs';
 import {RecomendationI} from '../../model/interfaces/recomendation-i.model';
+import {JobPostModel} from '../../model/job-post.model';
 
 @Injectable({
     providedIn: 'root'
