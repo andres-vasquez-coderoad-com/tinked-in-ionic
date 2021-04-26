@@ -1,13 +1,13 @@
-import { Inject, Injectable } from "@angular/core";
-import { UserModel } from "../../model/user.model";
-import { RecommendationModel } from "../../model/recommendation.model";
-import { JobPostModel } from "../../model/job-post.card";
-import { Observable, of } from "rxjs";
-import { RecommendationService } from "../recommendation/recommendation.service";
-import { ClientI } from "../../model/interfaces/client-i.model";
+import {Inject, Injectable} from '@angular/core';
+import {UserModel} from '../../model/user.model';
+import {RecommendationModel} from '../../model/recommendation.model';
+import {JobPostModel} from '../../model/job-post.card';
+import {Observable} from 'rxjs';
+import {RecommendationService} from '../recommendation/recommendation.service';
+import {ClientI} from '../../model/interfaces/client-i.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ClientService implements ClientI {
   constructor(
@@ -16,12 +16,12 @@ export class ClientService implements ClientI {
   ) {}
 
   getRecommendations(user: UserModel): Observable<RecommendationModel> {
-    console.log("Recommendations 1");
+    console.log('Recommendations 1');
     return this.recommendationService.getRecommendations(user);
   }
 
   postLike(user: UserModel, job: JobPostModel): boolean {
-    console.log("Like saved from client", job);
+    console.log('Like saved from client', job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),
@@ -33,7 +33,7 @@ export class ClientService implements ClientI {
   }
 
   disLike(user: UserModel, job: JobPostModel): boolean {
-    console.log("Dislike saved  from client", job);
+    console.log('Dislike saved  from client', job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),
@@ -45,7 +45,7 @@ export class ClientService implements ClientI {
   }
 
   passed(user: UserModel, job: JobPostModel): boolean {
-    console.log("Passed saved  from client", job);
+    console.log('Passed saved  from client', job);
     this.updateRecommendationHistory(
       user,
       new Date().getTime(),

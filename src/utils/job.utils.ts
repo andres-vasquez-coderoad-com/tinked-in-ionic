@@ -1,5 +1,5 @@
-import { JobPostCard, JobPostModel } from "../model/job-post.card";
-import { RecommendationModel } from "../model/recommendation.model";
+import {JobPostCard, JobPostModel} from '../model/job-post.card';
+import {RecommendationModel} from '../model/recommendation.model';
 
 export class JobUtils {
   static mapJobPostCardToJobPostModel(

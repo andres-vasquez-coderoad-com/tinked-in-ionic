@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {ChatPage} from './chat.page';
 import {HammerModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
-import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {ComponentsModule} from '../../components/components.module';
 
 const routes: Routes = [

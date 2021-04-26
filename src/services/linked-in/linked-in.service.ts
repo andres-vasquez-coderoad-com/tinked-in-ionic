@@ -1,21 +1,21 @@
-import { Injectable } from "@angular/core";
-import { LinkedInI } from "../../model/interfaces/linked-in-i.model";
-import { CandidateUserModel, UserModel } from "../../model/user.model";
-import { JobPostModel } from "../../model/job-post.card";
+import {Injectable} from '@angular/core';
+import {LinkedInI} from '../../model/interfaces/linked-in-i.model';
+import {CandidateUserModel, UserModel} from '../../model/user.model';
+import {JobPostModel} from '../../model/job-post.card';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LinkedInService implements LinkedInI {
   constructor() {}
 
   login(email: string): UserModel {
     const newUser: UserModel = new CandidateUserModel(
-      "123",
-      "Juan Perez",
-      "test@upb.edu",
-      "Bolivia",
-      "La Paz",
+      '123',
+      'Juan Perez',
+      'test@upb.edu',
+      'Bolivia',
+      'La Paz',
       [],
       true
     );
