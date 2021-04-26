@@ -10,7 +10,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "types": [
-      "node"
+      "node",
+      "jasmine"
     ],
     "resolveJsonModule": true,
     "importHelpers": true,
