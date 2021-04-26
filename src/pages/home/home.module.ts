@@ -2,11 +2,13 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HomePage} from './home.page';
+import {HomePage} from './ui/home.page';
 import {HammerModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
-import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {ComponentsModule} from '../../components/components.module';
+import {HomeUseCases} from './use-cases/home.use-cases';
+import {HomeRepository} from './repository/home.repository';
 
 const routes: Routes = [
     {
@@ -26,7 +28,9 @@ const routes: Routes = [
         ComponentsModule
     ],
     providers: [
-        TranslateService
+        TranslateService,
+        HomeUseCases,
+        HomeRepository
     ],
     declarations: [HomePage]
 })

@@ -13,17 +13,28 @@ export class RecommendationModel {
     }
 
     getCards(): Array<JobPostCard> {
-        return this.recommendedPosts.map(post => post.card);
+        return this.recommendedPosts.map(post => {
+            post.card.uuid = post.uuid;
+            return post.card;
+        });
     }
 }
 
 export class RecommendationHistory {
     userUuid: string;
-    //Uuid of JobPosts
+    // Uuid of JobPosts
     likes: Set<string>;
     disLikes: Set<string>;
 
-    //Key; Uuid of JobPost, val: Number of occurrences
+    // Key; Uuid of JobPost, val: Number of occurrences
     passed: Map<string, number>;
     lastActionTimestamp: number;
+
+    constructor(userUuid: string) {
+        this.userUuid = userUuid;
+        this.likes = new Set<string>();
+        this.disLikes = new Set<string>();
+        this.passed = new Map<string, number>();
+        this.lastActionTimestamp = new Date().getTime();
+    }
 }

@@ -15,6 +15,7 @@ import {ClientService} from '../services/client/client.service';
 import {LinkedInService} from '../services/linked-in/linked-in.service';
 import {RecommendationService} from '../services/recommendation/recommendation.service';
 import {MockClientService} from '../services/client/mock-client.service';
+import {AnalyticsService} from '../services/analytics/analytics.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
         ClientService,
         LinkedInService,
         RecommendationService,
+        AnalyticsService,
 
         //Mock
         MockClientService,
