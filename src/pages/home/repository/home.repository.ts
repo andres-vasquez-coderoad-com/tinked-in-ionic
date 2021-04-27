@@ -10,6 +10,7 @@ import {Observable, of} from 'rxjs';
 import {HomeRepositoryI} from './home-i.repository';
 import {map} from 'rxjs/operators';
 import {JobPostCard} from '../entity/job-post.card';
+import {MockClientService} from '../../../services/client/mock-client.service';
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +21,7 @@ export class HomeRepository implements HomeRepositoryI {
     recommendations: RecommendationModel;
 
     constructor(@Inject(LinkedInService) private linkedInService: LinkedInI,
-                @Inject(ClientService) private clientService: ClientI) {
+                @Inject(MockClientService) private clientService: ClientI) {
         this.currentUser = this.linkedInService.login(null);
     }
 
@@ -28,6 +29,7 @@ export class HomeRepository implements HomeRepositoryI {
         if (this.currentUser instanceof CandidateUserModel) {
             return this.clientService.getRecommendations(this.currentUser).pipe(
                 map((recommendation) => {
+                    console.log(recommendation);
                     this.recommendations = recommendation;
                     return recommendation.getCards();
                 }),
