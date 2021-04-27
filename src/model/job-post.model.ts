@@ -8,4 +8,6 @@ export class JobPostModel {
     accuracy: number;
     random: boolean;
     tags: Array<string>;
+
+    commonWithUser?: number;
 }

@@ -13,6 +13,10 @@ export class RecommendationModel {
         this.recommendedPosts = recommendedPosts;
     }
 
+    update(recommendedPosts: Array<JobPostModel>) {
+        this.recommendedPosts = recommendedPosts;
+    }
+
     getCards(): Array<JobPostCard> {
         return this.recommendedPosts.map(post => {
             post.card.uuid = post.uuid;
