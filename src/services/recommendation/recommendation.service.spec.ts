@@ -91,10 +91,123 @@ describe('RecommendationService', () => {
         algo.execute();
 
         // Obtain posts filtered
-        const filtererJobPosts = algo.jobs;
         const firstJob = algo.jobs[0];
+
         // firstJob.tags --> defaultUser.skills;
         const commonSkills: Array<string> = firstJob.tags.filter(tag => defaultUser.skills.includes(tag));
         expect(commonSkills.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it('5. La segunda recomendación debe contener 1 o más preferencias. ', () => {
+        // Create algorithm Model
+        const algo = new RecommendationAlgorithm(defaultUser,
+            recommentation.recommendedPosts,
+            service.getHistory(defaultUser.uuid));
+
+        // Execute the algo functions
+        algo.execute();
+
+        // Obtain posts filtered
+        const firstJob = algo.jobs[0];
+
+        // firstJob.tags --> defaultUser.skills;
+        const commonSkills: Array<string> = firstJob.tags.filter(tag => defaultUser.skills.includes(tag));
+        expect(commonSkills.length).toBeGreaterThanOrEqual(1);
+    });
+
+    it('6. La primera recomendación debe ser acorde a su localización, Bolivia ', () => {
+        // Create algorithm Model
+        const algo = new RecommendationAlgorithm(defaultUser,
+            recommentation.recommendedPosts,
+            service.getHistory(defaultUser.uuid));
+
+        // Execute the algo functions
+        algo.execute();
+
+        // Obtain posts filtered
+        const firstJob = algo.jobs[1];
+        expect(firstJob.country).toBe(defaultUser.country);
+    });
+
+    it('7. La segunda recomendación debe ser acorde a su localización, ciudad ', () => {
+        // Create algorithm Model
+        const algo = new RecommendationAlgorithm(defaultUser,
+            recommentation.recommendedPosts,
+            service.getHistory(defaultUser.uuid));
+
+        // Execute the algo functions
+        algo.execute();
+
+        // Obtain posts filtered
+        const secondJob = algo.jobs[1];
+        expect(secondJob.city).toBe(defaultUser.city);
+    });
+
+    it('8. La tercera recomendación no debe tener ninguna de sus preferencias.', () => {
+        // Create algorithm Model
+        const algo = new RecommendationAlgorithm(defaultUser,
+            recommentation.recommendedPosts,
+            service.getHistory(defaultUser.uuid));
+
+        // Execute the algo functions
+        algo.execute();
+
+        // Obtain posts filtered
+        const thirdJob = algo.jobs[2];
+        const commonSkills: Array<string> = thirdJob.tags.filter(tag => defaultUser.skills.includes(tag));
+        expect(commonSkills.length).toBe(0);
+    });
+
+    it('9. Nuevo test, usuario de colombia', () => {
+        const usuarioDeColombia: CandidateUserModel = new CandidateUserModel(
+            '123',
+            'Juan Perez Valde',
+            'test@upb.edu',
+            'Colombia',
+            'Bogotá',
+            [
+                'Ventas',
+                'Agile',
+                'Lead'
+            ],
+            true
+        );
+
+        // Create algorithm Model
+        const algo = new RecommendationAlgorithm(usuarioDeColombia,
+            recommentation.recommendedPosts,
+            service.getHistory(usuarioDeColombia.uuid));
+
+        // Execute the algo functions
+        algo.execute();
+
+        // Obtain posts filtered
+        const firstJob = algo.jobs[0];
+        if (String(firstJob.uuid) !== '12') {
+            fail('First job is not working');
+        }
+
+        const secondPosition = algo.jobs[1];
+        if (String(secondPosition.uuid) !== '10') {
+            fail('Second job is not working');
+        }
+
+        const thirdPosition = algo.jobs[2];
+
+        // Set<> no permite duplicados
+        // For anidado (filter ==> includes )
+        const commonSkills: Array<string> = thirdPosition.tags.filter(tag => defaultUser.skills.includes(tag));
+
+        const setUserSkills: Set<string> = new Set<string>(usuarioDeColombia.skills);
+        const setPositionSkills: Set<string> = new Set<string>(thirdPosition.tags);
+        // Solo recorremos un for
+        setPositionSkills.forEach((tag) => {
+            if (setUserSkills.has(tag)) {
+                // Falla y se detiene
+                fail('Third job is not working');
+            }
+        });
+
+        expect(true).toEqual(true);
     });
 });
