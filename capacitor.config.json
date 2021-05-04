@@ -3,7 +3,7 @@
   "appName": "TinkedIn",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "dist/app",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
