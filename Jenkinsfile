@@ -34,22 +34,22 @@ pipeline {
                         }
 
                         stage('Create Build Packages Android') {
-                         try {
                           sh 'npx cap add android'
                           sh 'ionic capacitor copy'
                           sh 'cd android && ./gradlew assembleDebug'
                         }
 
                        stage('Stage Archive Android') {
-                        // tell Jenkins to archive the apks
-                        archiveArtifacts artifacts: 'android/app/build/outputs/apk/debug/app-debug.apk', fingerprint: true
+                          // tell Jenkins to archive the apks
+                          archiveArtifacts artifacts: 'android/app/build/outputs/apk/debug/app-debug.apk', fingerprint: true
                        }
 
                        stage('Copy artifact to public place') {
                            String pathArtAndroid = "${env.WORKSPACE}" + "/android/app/build/outputs/apk/debug/app-debug.apk"
                            pathArtAndroid = pathArtAndroid.replaceAll(' ','\\\\ ')
                            sh 'mv ' +pathArtAndroid+ ' /Users/Shared/'
-                     }
+                       }
+                   }
                 }
             }
         }
