@@ -6,6 +6,10 @@
     <param name="android-package" value="com.testfairy.CDVTestFairy"/>
   </feature>
 
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
   <feature name="FirebaseAnalytics">
     <param name="android-package" value="by.chemerisuk.cordova.firebase.FirebaseAnalyticsPlugin"/>
     <param name="onload" value="$ANALYTICS_COLLECTION_ENABLED"/>

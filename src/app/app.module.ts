@@ -16,6 +16,8 @@ import {LinkedInService} from '../services/linked-in/linked-in.service';
 import {RecommendationService} from '../services/recommendation/recommendation.service';
 import {MockClientService} from '../services/client/mock-client.service';
 import {AnalyticsService} from '../services/analytics/analytics.service';
+import {Device} from '@ionic-native/device/ngx';
+import {FirebaseAnalytics} from '@ionic-native/firebase-analytics/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,7 +53,10 @@ export function createTranslateLoader(http: HttpClient) {
         RecommendationService,
         AnalyticsService,
 
-        //Mock
+        Device,
+        FirebaseAnalytics,
+
+        // Mock
         MockClientService,
         {
             provide: RouteReuseStrategy, useClass: IonicRouteStrategy,

@@ -16,7 +16,9 @@ export class AppComponent {
         translate.use('es');
 
         platform.ready().then(() => {
-            TestFairy.begin(environment.testFairyToken);
+            if (platform.is('android')) {
+                TestFairy.begin(environment.testFairyToken);
+            }
         });
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "509631773123",
+    "project_id": "tinked-in",
+    "storage_bucket": "tinked-in.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509631773123:android:37ee9fb93d18921b422576",
+        "android_client_info": {
+          "package_name": "upb.edu.tinkedin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509631773123-prb069qq1ea2jnk5vkmskgebggm3t59b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVM2msFowfn8TW8-gKIF0S7RQdgzdxJ2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509631773123-prb069qq1ea2jnk5vkmskgebggm3t59b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.0",
@@ -14,12 +14,15 @@
     "@capacitor/core": "2.4.7",
     "@fortawesome/angular-fontawesome": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@ionic-native/core": "^5.32.1",
+    "@ionic-native/device": "^5.32.1",
     "@ionic-native/firebase-analytics": "^5.32.1",
     "@ionic/angular": "^5.5.2",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/hammerjs": "^2.0.39",
     "com.testfairy.cordova-plugin": "^2.48.0",
+    "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-firebase-analytics": "^5.0.0",
     "cordova-support-android-plugin": "^1.0.2",
     "core-js": "^3.6.4",
@@ -34,7 +37,10 @@
     "build": "ng build",
     "test": "ng test  --browsers PhantomJS --watch=false",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "android": "npm run android:install && npm run android:run",
+    "android:install": "ionic build && ionic cap sync  && cd android && ./gradlew assembleDebug && adb install app/build/outputs/apk/debug/app-debug.apk",
+    "android:run": "adb shell am start -n upb.edu.tinkedin/upb.edu.tinkedin.MainActivity"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.4",
