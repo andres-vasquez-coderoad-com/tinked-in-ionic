@@ -28,7 +28,9 @@ pipeline {
                         }
 
                         stage('Create Build Packages Android') {
+                          try {
                           sh 'npx cap add android'
+                          } catch(){}
                           sh 'ionic capacitor copy'
                           sh 'cd android && ./gradlew assembleDebug'
                         }
