@@ -1,7 +1,8 @@
 {
   "name": "TinkedIn",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

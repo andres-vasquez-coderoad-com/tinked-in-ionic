@@ -15,12 +15,6 @@ pipeline {
                    }
 
                    stage('build') {
-                        stage('Clean Environment if exists') {
-                         try {
-                          sh 'rm -rf android'
-                         } catch (e) {}
-                        }
-
                         stage('Install dependencies and prepare') {
                          sh 'rm -rf node_modules'
                          sh 'npm install'
