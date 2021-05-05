@@ -24,7 +24,7 @@ pipeline {
                         }
 
                         stage('Run tests - Unit Tests') {
-                         //sh 'npm run test'
+                         sh 'npm run test'
                         }
 
                         stage('Create Build Packages Android') {
