@@ -32,12 +32,14 @@ export class AnalyticsService implements AnalyticsServiceI {
     }
 
     private logEvent(event: string) {
-        const obj = {
-            uuid: this.device.uuid,
-            timestamp: new Date().getTime()
-        };
-        this.firebaseAnalytics.logEvent(event, obj)
-            .then((res: any) => console.log(res))
-            .catch((error: any) => console.error(error));
+        if (this.device.platform === 'android') {
+            const obj = {
+                uuid: this.device.uuid,
+                timestamp: new Date().getTime()
+            };
+            this.firebaseAnalytics.logEvent(event, obj)
+                .then((res: any) => console.log(res))
+                .catch((error: any) => console.error(error));
+        }
     }
 }

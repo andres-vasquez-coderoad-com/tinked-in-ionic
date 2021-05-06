@@ -3,8 +3,6 @@ import {TranslateService} from '@ngx-translate/core';
 import {Platform} from '@ionic/angular';
 import {environment} from '../environments/environment';
 
-declare var TestFairy: any;
-
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
