@@ -14,10 +14,14 @@
     "@capacitor/core": "2.4.7",
     "@fortawesome/angular-fontawesome": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@ionic-native/firebase-analytics": "^5.32.1",
     "@ionic/angular": "^5.5.2",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/hammerjs": "^2.0.39",
+    "com.testfairy.cordova-plugin": "^2.48.0",
+    "cordova-plugin-firebase-analytics": "^5.0.0",
+    "cordova-support-android-plugin": "^1.0.2",
     "core-js": "^3.6.4",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.6.0",
@@ -28,7 +32,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test  --browsers PhantomJS --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -44,6 +48,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.20.10",
     "codelyzer": "^6.0.0",
+    "intl": "^1.2.5",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.2.0",
@@ -52,9 +57,17 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.16",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
+  },
+  "cordova": {
+    "plugins": {
+      "com.testfairy.cordova-plugin": {}
+    }
   }
 }

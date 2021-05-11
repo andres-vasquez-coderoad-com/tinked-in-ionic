@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TinkedIn</string>
+    <string name="title_activity_main">TinkedIn</string>
+    <string name="package_name">upb.edu.tinkedin</string>
+    <string name="custom_url_scheme">upb.edu.tinkedin</string>
+</resources>
